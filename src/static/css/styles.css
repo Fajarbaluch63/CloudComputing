@@ -1,8 +1,15 @@
 body {
-    background-color: #FFC0CB;
+    background:  #FFC0CB;
     margin-top: 50px;
     font-family: 'Lato';
 }
+
+
+.item.completed {
+    background-color: #ddd;
+    opacity: 0.6;
+}
+
 
 .item {
     background-color: grey;
@@ -11,23 +18,19 @@ body {
     border: transparent;
     border-radius: 5px;
     box-shadow: 0 0 1em #ccc;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .item:hover {
     box-shadow: 0 0 1em #aaa;
 }
 
-.item.completed {
-    text-decoration: line-through;
+.item:active {
+    background-color: #008000; /* Light pink when clicked */
 }
 
 .toggles {
     color: black;
-}
-
-.name {
-    padding-top: 3px;
 }
 
 .remove {
@@ -44,7 +47,21 @@ button:hover {
     color: white; /* Change text color for better contrast */
 }
 
+
+button {
+    background: linear-gradient(to bottom, #FF69B4, #FFC0CB);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
 .name {
     padding-top: 3px;
     font-size: 18px; /* Increase font size for the item name */
+}
+.header {
+    background-color: rgba(255, 192, 203, 0.7);
+    text-align: center;
+    padding: 20px;
 }

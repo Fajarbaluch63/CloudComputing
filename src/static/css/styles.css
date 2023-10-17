@@ -37,3 +37,14 @@ body {
 button:focus {
     border: 1px solid #333;
 }
+button:focus,
+button:hover {
+    border: 1px solid #333;
+    background-color: #FF69B4; /* Pink background on hover/focus */
+    color: white; /* Change text color for better contrast */
+}
+
+.name {
+    padding-top: 3px;
+    font-size: 18px; /* Increase font size for the item name */
+}

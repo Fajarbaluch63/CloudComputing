@@ -1,0 +1,39 @@
+services:
+  app1:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 8008:3000   # Map port 8080 on your host to port 3000 on the container for app1
+    working_dir: /app
+    volumes:
+      - ./getting-started-app:/app  # Mount the app1 directory as the working directory
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  app2:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 80:3000   # Map port 80 on your host to port 3000 on the container for app2
+    working_dir: /app
+    volumes:
+      - ./CloudComputing:/app # Mount the app2 directory as the working directory
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:
